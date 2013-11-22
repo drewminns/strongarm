@@ -35,6 +35,18 @@ To define the grid, change the variables below
 	// Remove the bottom variable and wrap in a container for a pixel based layout
 	@total-width: 100%;
 	
+	
+To use the grid, use the mixins to define the number of columns an element requires. (PS, if you made the @columns variable 12 columns, you need to make sure you add up things to 12!).
+
+	section {
+		.column(9);
+	}
+	
+	aside {
+		.column(3);
+	}
+	
+	
 ####Javacript
 Just to make sure you can be modern, Strongarm comes with the lovely HTML5Shiv included. As well, because everyone uses it, JQuery 1.10.2 is included. Provided for all the extra fun is an app.js file for your custom code. 
 
