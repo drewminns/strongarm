@@ -1,12 +1,216 @@
-.box-sizing () {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing:    border-box;
-  box-sizing:         border-box;
+.box-sizing (@type: border-box) {
+  -webkit-box-sizing: @type;
+  -moz-box-sizing:    @type;
+  box-sizing:         @type;
 }
 
-// Defaults to 5px radius
+
+// -------------------------
+//  Test-Shadow
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+  text-shadow: @string;
+}
+
+// -------------------------
+//  Rounded Corners
+/* for border-radius, named to be consistent with roundedcorner */
 .border-radius (@radius: 5px) {
   -webkit-border-radius: @radius;
   -moz-border-radius:    @radius;
   border-radius:         @radius;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
 }
+
+// -------------------------
+// Border-Box
+// --------
+// For making elements respond like you'd expect them to.
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+
+
+
+// -------------------------
+// IE7 inline-block
+// ----------------
+.ie7-inline-block() {
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+// -------------------------
+// Box Shadow
+// ----------------
+.box-shadow(@rule) {
+  -webkit-box-shadow: @rule; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: @rule; /* FF3.5 - 3.6 */
+  box-shadow: @rule; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
+}
+
+
+// -------------------------
+// Overlay
+// -------------------------
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// -------------------------
+// Placeholder text
+// -------------------------
+.placeholder(@color: @placeholderText) {
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+
+// -------------------------
+// Button Build
+// -------------------------
+.button(@btncolor) {
+  display: inline-block;
+  margin: 0;
+  padding: 5px 10px;
+  border: 3px solid @btncolor;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: @btncolor;
+  background-image: linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+  background-image: -o-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+  background-image: -moz-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+  background-image: -ms-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+  background-image: -webkit-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.06, lighten(@btncolor, 80%)),
+    color-stop(0.5, @btncolor)
+  );
+  color: #FFF;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  &:hover,
+  &:focus {
+    background-image: linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+    background-image: -o-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+    background-image: -moz-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+    background-image: -ms-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+    background-image: -webkit-linear-gradient(top, lighten(@btncolor, 80%) 6%, @btncolor 50%);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0.06, lighten(@btncolor, 80%)),
+      color-stop(1, @btncolor)
+    );
+  }
+}
+
+.hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+// -------------------------
+// Generates transitions on a given element
+.transition(@property: all, @duration: 0.2s, @timing: linear) {
+        -webkit-transition: @property @duration @timing;
+        -moz-transition: @property @duration @timing;
+        -ie-transition: @property @duration @timing;
+        -o-transition: @property @duration @timing;
+        transition: @property @duration @timing;
+}
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @name @duration @delay @ease;
+  -moz-animation:    @name @duration @delay @ease;
+  -ms-animation:     @name @duration @delay @ease;
+}
+
+.transition (@transition) {
+  -webkit-transition: @transition;  
+  -moz-transition:    @transition;
+  -ms-transition:     @transition; 
+  -o-transition:      @transition;  
+}
+.transform(@string){
+  -webkit-transform: @string;
+  -moz-transform:    @string;
+  -ms-transform:     @string;
+  -o-transform:      @string;
+}
+.scale (@factor) {
+  -webkit-transform: scale(@factor);
+  -moz-transform:    scale(@factor);
+  -ms-transform:     scale(@factor);
+  -o-transform:      scale(@factor);
+}
+.rotate (@deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform:    rotate(@deg);
+  -ms-transform:     rotate(@deg);
+  -o-transform:      rotate(@deg);
+}
+.skew (@deg, @deg2) {
+  -webkit-transform:       skew(@deg, @deg2);
+  -moz-transform:    skew(@deg, @deg2);
+  -ms-transform:     skew(@deg, @deg2);
+  -o-transform:      skew(@deg, @deg2);
+}
+.translate (@x, @y:0) {
+  -webkit-transform:       translate(@x, @y);
+  -moz-transform:    translate(@x, @y);
+  -ms-transform:     translate(@x, @y);
+  -o-transform:      translate(@x, @y);
+}
+.translate3d (@x, @y: 0, @z: 0) {
+  -webkit-transform:       translate3d(@x, @y, @z);
+  -moz-transform:    translate3d(@x, @y, @z);
+  -ms-transform:     translate3d(@x, @y, @z);
+  -o-transform:      translate3d(@x, @y, @z);
+}
+.perspective (@value: 1000) {
+  -webkit-perspective:  @value;
+  -moz-perspective:   @value;
+  -ms-perspective:  @value;
+  perspective:    @value;
+}
+.transform-origin (@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin:    @x @y;
+  -ms-transform-origin:     @x @y;
+  -o-transform-origin:      @x @y;
+}
+
+
+
+
+
+

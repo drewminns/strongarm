@@ -1,13 +1,13 @@
 a:link {
-  color: #f1c40f;
+  color: #3498db;
   text-decoration: none;
 }
 a:hover {
-  color: #c29d0b;
+  color: #217dbb;
   text-decoration: none;
 }
 a:visited {
-  color: #796307;
+  color: #16527a;
   text-decoration: none;
 }
 p {
@@ -19,20 +19,44 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   line-height: 1em;
-  text-transform: uppercase;
 }
 h1 {
   font-size: 2.3em;
+  line-height: 2em;
 }
 h2 {
   font-size: 1.8em;
+  line-height: 1.5em;
 }
 h3 {
   font-size: 1.5em;
+  line-height: 1.2em;
 }
 h4 {
   font-size: 1.2em;
+  line-height: 1em;
+}
+/* for border-radius, named to be consistent with roundedcorner */
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
 }

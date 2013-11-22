@@ -1,3 +1,4 @@
+// *********************************
 // Your main branding file...or variables bro
 @import '_brand.less';
 @import '_grid.less';
@@ -7,12 +8,24 @@
 }
 
 body {
-  font-size: 1em;
-  color: #555;
+  font-size: 1.2em;
+  color: #333;
   font-weight: 300;
   font-family: @bodyfont;
 }
 
+.container {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.breath {
+  margin-top: 15px;
+}
+
+// *********************************
+// SEMANTIC GS
 // Specify the number of columns and set column and gutter widths
 @columns: 12;
 @column-width: 60;
@@ -21,8 +34,50 @@ body {
 // Remove the definition below for a pixel-based layout
 @total-width: 100%;
 
+
+// *********************************
 //Keep these here. Don't move them. Or else you declare typography before everything else. Weirdo.
 @import '_typography.less';
 @import '_mixins.less';
 
+// *********************************
+// The Wonderful Hint.css library for beautiful, no stress tooltips.
+// <a href='/foo' data-hint='Hint: this is clickable!' class='hint' />test</a>
+@import '_hint.less';
+
+// *********************************
 //Put all the good stuff below here
+// *********************************
+
+header {
+  background-color: @bluegreen;
+  padding: 25px 5px;
+  h1 {
+    color: @white;
+    font-size: 2.5em;
+    .text-shadow;
+  }
+}
+
+section {
+  .push(2);
+  .column(8);
+}
+
+footer {
+  .column(12);
+  margin-top: 25px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /* portrait phones */
+}
