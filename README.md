@@ -15,6 +15,7 @@ The file structure is as follows
 		- _grid.less
 		- _mixins.less
 		- _typography.less
+		- _hint.less
 		- main.less
 		- print.less
 		
@@ -46,9 +47,13 @@ To use the grid, use the mixins to define the number of columns an element requi
 		.column(3);
 	}
 	
-	
+####Hint.less
+Origination from (https://github.com/bevacqua/hint-less)[https://github.com/bevacqua/hint-less], I've incorporate the wonderful Hint CSS framework for those fancy tooltips.
+
+	<a href='/foo' data-hint='Hint: this is clickable!' class='hint' />
+
 ####Javacript
-Just to make sure you can be modern, Strongarm comes with the lovely HTML5Shiv included. As well, because everyone uses it, JQuery 1.10.2 is included. Provided for all the extra fun is an app.js file for your custom code. 
+Just to make sure you can be modern, Strongarm comes with the lovely HTML5Shiv and CSS3-mediaqueries.js included. As well, because everyone uses it, JQuery 1.10.2 is included. Provided for all the extra fun is an app.js file for your custom code. 
 
 If any of these aren't needed, just remove them! Same goes for anything new, just add them! They'll be processed automagically.
 
