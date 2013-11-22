@@ -1,0 +1,28 @@
+// Your main branding file...or variables bro
+@import '_brand.less';
+@import '_grid.less';
+
+* {
+  .box-sizing;
+}
+
+body {
+  font-size: 1em;
+  color: #555;
+  font-weight: 300;
+  font-family: @bodyfont;
+}
+
+// Specify the number of columns and set column and gutter widths
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+@total-width: 100%;
+
+//Keep these here. Don't move them. Or else you declare typography before everything else. Weirdo.
+@import '_typography.less';
+@import '_mixins.less';
+
+//Put all the good stuff below here
