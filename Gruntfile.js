@@ -9,7 +9,7 @@ module.exports = function(grunt) {
           separator: ';'
         },
         src: [
-          'js/*.js'
+          'javascript/*.js'
         ],
         dest: 'public/js/main.min.js'
       },
@@ -47,10 +47,22 @@ module.exports = function(grunt) {
           livereload: true,
         }
       }
+    },
+    cssmin: {
+      add_banner: {
+        options: {
+          banner: '/* Minified with Grunt <3 */'
+        },
+        files: {
+          'public/css/style.css': ['public/css/style.css']
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
+
 };
