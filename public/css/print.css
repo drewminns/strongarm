@@ -1,43 +1,68 @@
-a:link {
-  color: #3498db;
-  text-decoration: none;
-}
-a:hover {
-  color: #217dbb;
-  text-decoration: none;
-}
-a:visited {
-  color: #16527a;
-  text-decoration: none;
-}
-p {
-  font-size: 1em;
-  margin-bottom: 1.5em;
-  line-height: 1.5em;
-}
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: "Montserrat", Helvetica, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  line-height: 1em;
+  font-weight: 100;
+  line-height: 1.3em;
+  color: #333333;
+  text-rendering: optimizelegibility;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  font-weight: normal;
+  line-height: 1;
 }
 h1 {
-  font-size: 2.3em;
-  line-height: 2em;
+  font-size: 35.75px;
 }
 h2 {
-  font-size: 1.8em;
-  line-height: 1.5em;
+  font-size: 29.25px;
 }
 h3 {
-  font-size: 1.5em;
-  line-height: 1.2em;
+  font-size: 22.75px;
 }
 h4 {
-  font-size: 1.2em;
-  line-height: 1em;
+  font-size: 16.25px;
+}
+h5 {
+  font-size: 13px;
+}
+h6 {
+  font-size: 11.049999999999999px;
+}
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+}
+ul.inline > li,
+ol.inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 /* for border-radius, named to be consistent with roundedcorner */
 .border-box {

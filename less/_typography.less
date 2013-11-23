@@ -1,47 +1,69 @@
 @import: '_brand.less';
 
-a:link {
-        color: @blue;
-        text-decoration: none;
-}
-a:hover {
-        color: darken(@blue, 10%);
-        text-decoration: none;
-}
-a:visited {
-        color: darken(@blue, 25%);
-        text-decoration: none;
-}
+// Headings
+// -------------------------
 
-p {
-  font-size: 1em;
-  margin-bottom: 1.5em;
-  line-height: 1.5em;
-
-}
-
-h1, h2, h3, h4 {
-  font-family: @headingsfont;
-  font-weight: 700;
-  line-height: 1em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: @headingsfontFamily;
+  font-weight: @headingsFontWeight;
+  line-height: @baseLineHeight;
+  color: @headingsColour;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+  small {
+    font-weight: normal;
+    line-height: 1;
+  }
 }
 
 h1 {
-  font-size: 2.3em;
-  line-height: 2em;
+  font-size: (@basefontsize * 2.75);
 }
-
 h2 {
-  font-size: 1.8em;
-  line-height: 1.5em;
+  font-size: (@basefontsize * 2.25);
 }
-
 h3 {
-  font-size: 1.5em;
-  line-height: 1.2em;
+  font-size: (@basefontsize * 1.75);
+}
+h4 {
+  font-size: (@basefontsize * 1.25);
+}
+h5 {
+  font-size: @basefontsize;
+}
+h6 {
+  font-size: (@basefontsize * 0.85);
 }
 
-h4 {
-  font-size: 1.2em;
-  line-height: 1em;
+// Lists
+// --------------------------------------------------
+
+// Unordered and Ordered lists
+ul, ol {
+  padding: 0;
+  margin: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+// Remove default list styles
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+// Single-line list items
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }

@@ -1,17 +1,17 @@
-// *********************************
-// Your main branding file...or variables bro
 @import '_brand.less';
-@import '_grid.less';
+@import '_typography.less';
+@import '_mixins.less';
+@import '_forms.less';
 
 * {
   .box-sizing;
 }
 
 body {
-  font-size: 1.2em;
+  font-size: @basefontsize;
   color: #333;
   font-weight: 300;
-  font-family: @bodyfont;
+  font-family: @basefont;
 }
 
 .container {
@@ -20,13 +20,10 @@ body {
   text-align: center;
 }
 
-.breath {
-  margin-top: 15px;
-}
-
 // *********************************
 // SEMANTIC GS
 // Specify the number of columns and set column and gutter widths
+@import '_grid.less';
 @columns: 12;
 @column-width: 60;
 @gutter-width: 20;
@@ -37,20 +34,15 @@ body {
 
 // *********************************
 //Keep these here. Don't move them. Or else you declare typography before everything else. Weirdo.
-@import '_typography.less';
-@import '_mixins.less';
 
-// *********************************
-// The Wonderful Hint.css library for beautiful, no stress tooltips.
-// <a href='/foo' data-hint='Hint: this is clickable!' class='hint' />test</a>
-@import '_hint.less';
+
 
 // *********************************
 //Put all the good stuff below here
 // *********************************
 
 header {
-  background-color: @bluegreen;
+  background-color: @blue;
   padding: 25px 5px;
   h1 {
     color: @white;
@@ -67,6 +59,12 @@ section {
 footer {
   .column(12);
 }
+
+// *********************************
+// The Wonderful Hint.css library for beautiful, no stress tooltips.
+// <a href='/foo' data-hint='Hint: this is clickable!' class='hint' />test</a>
+@import '_hint.less';
+
 
 
 @media only screen and (min-width: 768px) {
