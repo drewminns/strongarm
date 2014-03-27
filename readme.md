@@ -8,7 +8,6 @@ Created by Drew Minns
 
 	- javascript
 		- app.js
-	- node_modules
 	- public
 		- css
 			-fonts
@@ -17,13 +16,14 @@ Created by Drew Minns
 		- images
 			favicon.ico
 		- scripts
-			jquery.1.11.0.min.js
 			main.min.js
 		index.html
 	- styles
 		main.scss
 		_mixins.scss
 		_functions.scss
+	.bowerrc
+	bower.json
 	Gruntfile.js
 	package.json
 	readme.md
