@@ -1,0 +1,21 @@
+<form name="myForm">
+  <div id="formbuttons">
+    <div id="notetitle">
+      <h3>Go Ahead Shakespeare</h3>
+    </div>
+    <div id="buttonholder">
+      <button ng-click="save()" ng-disabled="myForm.$invalid" class="btn btn-save"><i class="fa fa-floppy-o fa-fw"></i> save</button>
+      <button ng-click="destroy()" ng-show="note.$remove" class="btn btn-delete"><i class="fa fa-times fa-fw"></i> delete</button>
+      <a href="#/" class="btn btn-cancel"><i class="fa fa-undo fa-fw"></i> cancel</a>
+    </div>
+  </div>
+  <div id="fields">
+    <div class="control-group" ng-class="{error: myForm.subject.$invalid && !myForm.subject.$pristine}">
+      <input type="text" name="subject" ng-model="note.subject" required class="megainput" placeholder="Enter Subject Line">
+      <span ng-show="myForm.name.$error.required && !myForm.name.$pristine" class="help-inline"> Required {{myForm.name.$pristine}}</span>
+    </div>
+
+    <textarea name="notebody" ng-model="note.notebody" class="noteentry" required placeholder="Enter Your Note"></textarea>
+  </div>
+
+</form>

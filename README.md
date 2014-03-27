@@ -1,76 +1,62 @@
-#Strongarm
+# Strongarm Starter Template
 
-Making starting a project easier (especially if you don't have Codekit). Strongarm uses Grunt to compile your LESS and Javascript files into production ready, minified files, making life easier for you to just go!
+Created by Drew Minns
+[drewminns.com](drewminns.com)
+[@drewisthe](http://twitter.com/drewisthe)
 
-##Features
-####LESS
-Strongarm uses LESS because, well it's the best. I'll release a build for SASS in the future. But hey, I teach my students LESS because they aren't Rails pros, so I build in LESS.
+## Main Structure
 
-I've included a typography, branding (variables), and mixins files for your additions. 
+	- javascript
+		- app.js
+	- node_modules
+	- public
+		- css
+			-fonts
+			main.css
+			normalize.css
+		- images
+			favicon.ico
+		- scripts
+			jquery.1.11.0.min.js
+			main.min.js
+		index.html
+	- styles
+		main.scss
+		_mixins.scss
+		_functions.scss
+	Gruntfile.js
+	package.json
+	readme.md
 
-The file structure is as follows
+##How to use Strongarm
 
-	- less
-		- _brand.less
-		- _grid.less
-		- _mixins.less
-		- _typography.less
-		- _hint.less
-		- main.less
-		- print.less
-		
-Using Grunt watch, the files are compiled to __public/styles/main.css__
+####Public Folder
+The public folder is obviously your public folder. This is what you will launch to your live site. This folder contains your compiled JS in the scripts folder, CSS includes [Normalize.css](http://necolas.github.io/normalize.css/) and your compiled SCSS files as CSS, and images contains a standard favicon that you can change as needed.
 
-To minify the resulting CSS file, run `grunt cssmin`
+####Javascript Folder
+Anything you put in the app.js file and any new files your create, will be concatenated via Grunt into public/scripts/main.min.js. The load order is set in the index.html file, where jQuery is loaded prior to the main.min.js. Add new plugins to the public/scripts/ folder, rather than the production folder.
 
-####Semantic Grid System
-I LOVE grid systems but I HATE all the extra classes that come along with them. I've fallen in love with [semantic.gs/](http://semantic.gs/) and the use of mixins and functions to create a flexible grid system.
+####Styles Folder
+Same as above, anything you write in the main.scss folder will be compiled as CSS and added to the public/css/main.css file. If you want to have seperate stylesheets, create them with the following convention - _filename.scss, and @import them to your main.scss where needed.
 
-The main.less file includes variables to define the build of your grid, and the grid.less contains the math to make all the magic happen.
+####Grunt Features
+__Grunt rules. Seriously.__
 
-To define the grid, change the variables below
+This grunt package will automatically start a local server `localhost:9001` that supports [Live Reload](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions). Any changes made to asset files, such as styles and javascript will automatically reload the browser.
 
-	@column-width: 60;
-	@gutter-width: 20;
-	@columns: 12;
-	// Remove the bottom variable and wrap in a container for a pixel based layout
-	@total-width: 100%;
-	
-	
-To use the grid, use the mixins to define the number of columns an element requires. (PS, if you made the @columns variable 12 columns, you need to make sure you add up things to 12!).
+Do not worry about writing prefixes for your code to support older browsers. The Grunt file has [Autoprefixer](https://github.com/ai/autoprefixer) included, and is set to target the last 5 versions of major browsers and ie7, ie8, and ie9 support. The values will be added based on information from [Can I Use](http://caniuse.com).
 
-	section {
-		.column(9);
-	}
-	
-	aside {
-		.column(3);
-	}
-	
-####Hint.less
-Origination from (https://github.com/bevacqua/hint-less)[https://github.com/bevacqua/hint-less], I've incorporate the wonderful Hint CSS framework for those fancy tooltips.
+To run grunt features. Use the command line to navigate to the project folder. Ensure that you have Node and NPM installed; if not, download it from [nodejs.org](http://nodejs.org/). Then run `npm install` to download all necessary dependencies. Once you've done that, run `grunt` and you've got it all going.
 
-	<a href='/foo' data-hint='Hint: this is clickable!' class='hint' />
+####What is Grunt doing?
 
-####Javacript
-Just to make sure you can be modern, Strongarm comes with the lovely HTML5Shiv and CSS3-mediaqueries.js included. As well, because everyone uses it, JQuery 1.10.2 is included. Provided for all the extra fun is an app.js file for your custom code. 
+- Watching your scss and js files, compiling, minifying and adding prefixes where needed.
+- Running a local server that you can access at `localhost:9001` that supports LiveReload.
+- Alert you of JS and CSS errors
+- Subliminaly making you love black metal and have a need to listen to Dimmu Borgir
 
-If any of these aren't needed, just remove them! Same goes for anything new, just add them! They'll be processed automagically.
 
-##How to use it
 
-1. Make sure your in the strongarm directory you've cloned.
 
-2. Install node.js if you don't have it [nodejs.org](http://nodejs.org), this will install NPM
 
-3. Install the awesome Grunt globally using this command `sudo npm install -g grunt-cli`
 
-4. Install Grunt Plugins via NPM `npm install`
-
-5. Run grunt on the directory with the following command `grunt watch`
-
-6. Minify your CSS files with `grunt cssmin`
-
-7. Create, code, win.
-
-8. Deploy your public file and rake in the cash!

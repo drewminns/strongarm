@@ -1,8 +1,28 @@
+var path = require('path');
+
+var stylesheetsDir = 'styles/';
+
 module.exports = function(grunt) {
- 
-  grunt.registerTask('default', [ 'concat', 'uglify', 'less', 'watch', 'cssmin']);
- 
+  // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    bowerInstall: {
+      target: {
+        // Point to the files that should be updated when
+        // you run `grunt bower-install`
+        src: [
+          'public/*.html',   // .html support...
+        ]
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          base: 'public/'
+        }
+      }
+    },
     concat: {
       js: {
         options: {
@@ -11,7 +31,7 @@ module.exports = function(grunt) {
         src: [
           'javascript/*.js'
         ],
-        dest: 'public/js/main.min.js'
+        dest: 'public/scripts/main.min.js'
       },
     },
     uglify: {
@@ -20,16 +40,26 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'public/js/main.min.js': ['public/js/main.min.js']
+          'public/scripts/main.min.js': ['public/scripts/main.min.js']
         }
       }
     },
-    less: {
-      style: {
-        files: {
-          "public/css/style.css": "less/main.less",
-          "public/css/print.css": "less/print.less"
+    sass: {                              // Task
+      dist: {                            // Target
+        options: {                       // Target options
+          style: 'expanded'
+        },
+        files: {                         // Dictionary of files
+          'public/css/main.css': stylesheetsDir + 'main.scss'       // 'destination': 'source'
         }
+      }
+    },
+    autoprefixer: {
+      options: {
+        browsers: ['last 5 version', 'ie 7', 'ie 8', 'ie 9']
+      },
+      no_dest: {
+        src: 'public/css/main.css' // globbing is also possible here
       }
     },
     watch: {
@@ -37,32 +67,25 @@ module.exports = function(grunt) {
         files: ['javascript/*.js'],
         tasks: ['concat:js', 'uglify:js'],
         options: {
-          livereload: true,
+          livereload: true
         }
       },
       css: {
-        files: ['less/*.less'],
-        tasks: ['less:style'],
+        files: ['**/*.scss'],
+        tasks: ['sass', 'autoprefixer'],
         options: {
-          livereload: true,
-        }
-      }
-    },
-    cssmin: {
-      add_banner: {
-        options: {
-          banner: '/* Minified with Grunt <3 */'
-        },
-        files: {
-          'public/css/style.css': ['public/css/style.css']
+          livereload: true
         }
       }
     }
   });
+  grunt.loadNpmTasks('grunt-bower-install');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
+  // Run the server and watch for file changes
+  grunt.registerTask('default', ['bowerInstall', 'connect', 'concat', 'uglify', 'sass', 'autoprefixer', 'watch']);
 };
