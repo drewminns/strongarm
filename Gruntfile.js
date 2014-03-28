@@ -6,25 +6,26 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		bowercopy: {
-				options: {
-						srcPrefix: 'bower_components'
-				},
-				scripts: {
-						options: {
-								destPrefix: 'public/scripts/vendor'
-						},
-						files: {
-								'jquery/jquery.min.js': 'jquery/dist/jquery.js',
-								'angular/angular.min.js': 'angular/angular.js'
-						}
-				}
+		bowerInstall: {
+			target: {
+				// Point to the files that should be updated when
+				// you run `grunt bower-install`
+				src: [
+					'public/*.html',   // .html support...
+				]
+			}
 		},
-		injector: {
-			options: {},
-			local_dependencies: {
+		bowercopy: {
+			options: {
+				srcPrefix: 'bower_components'
+			},
+			scripts: {
+				options: {
+					destPrefix: 'public/scripts/vendor'
+				},
 				files: {
-					'public/index.html': ['public/**/*.js', 'public/**/*.css'],
+					'jquery/jquery.js': 'jquery/dist/jquery.js',
+					'angular/angular.js': 'angular/angular.js'
 				}
 			}
 		},
@@ -63,7 +64,7 @@ module.exports = function(grunt) {
 					style: 'expanded'
 				},
 				files: {                         // Dictionary of files
-					'public/css/styles.css': stylesheetsDir + 'main.scss'       // 'destination': 'source'
+					'public/css/main.css': stylesheetsDir + 'main.scss'       // 'destination': 'source'
 				}
 			}
 		},
@@ -92,8 +93,8 @@ module.exports = function(grunt) {
 			}
 		}
 	});
+	grunt.loadNpmTasks('grunt-bower-install');
 	grunt.loadNpmTasks('grunt-bowercopy');
-	grunt.loadNpmTasks('grunt-injector');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -101,5 +102,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	// Run the server and watch for file changes
-	grunt.registerTask('default', ['bowercopy', 'injector',  'connect', 'concat', 'uglify', 'sass', 'autoprefixer', 'watch']);
+	grunt.registerTask('default', ['bowerInstall', 'bowercopy', 'connect', 'concat', 'uglify', 'sass', 'autoprefixer', 'watch']);
 };

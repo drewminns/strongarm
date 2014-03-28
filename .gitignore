@@ -7,3 +7,4 @@
 # Ignore bundler config
 /.sass-cache/*
 node_modules
+bower_components

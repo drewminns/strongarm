@@ -1,53 +1,20 @@
 <!doctype html>
-<html lang="en" ng-app="notesApp">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Newton</title>
-		<!-- injector:css -->
-		<link rel="stylesheet" href="/public/css/normalize.css">
+		<title>Strongarm</title>
+
 		<link rel="stylesheet" href="/public/css/styles.css">
-		<!-- endinjector -->
+		<link rel="stylesheet" href="/public/css/normalize.css">
 
 	</head>
-	<body ng-controller="noteCtrl" >
-
-		<div id="wrapper" ng-animate="'animate'">
-
-			<aside>
-				<header id="top">
-					<div id="logo"></div>
-					<h1><a href="/">newton</a></h1>
-				</header>
-				<section class="sectionheader">
-					<i class="fa fa-search fa-2x"></i>
-					<input type="text" ng-model="search" class="searchquery" placeholder="Search Notes" maxlength="20">
-				</section>
-				<section class="noteslist">
-					<a href="#/new" class="newnote">Add New Note <i class="fa fa-plus fa-fw"></i></a>
-					<h3>Your Notes</h3>
-					<ul>
-						<li ng-repeat="note in notes | orderByPriority | filter:search | orderBy:'name'" class="slide">
-							<a href="#/edit/{{note.$id}}">
-								<div class="icon"><i class="fa fa-bolt fa-2x"></i></div>
-								<div class="title">{{note.subject}}</div>
-							</a>
-						</li>
-					</ul>
-				</section>
-			</aside>
-
-			<main>
-				<div ng-view class="fade"></div>
-			</main>
-		</div>
+	<body>
 
 
-		<!-- injector:js -->
-		<script src="/public/scripts/main.min.js"></script>
-		<script src="/public/scripts/vendor/angular/angular.min.js"></script>
-		<script src="/public/scripts/vendor/jquery/jquery.js"></script>
-		<script src="/public/scripts/vendor/jquery/jquery.min.js"></script>
-		<!-- endinjector -->
+		<!-- bower:js -->
+		<script src="../bower_components/jquery/dist/jquery.js"></script>
+		<script src="../bower_components/angular/angular.js"></script>
+		<!-- endbower -->
 
 	</body>
 </html>
