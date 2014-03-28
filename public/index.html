@@ -3,12 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Newton</title>
-		<link rel="stylesheet" href="css/normalize.css" type="text/css">
-		<link rel="stylesheet" href="css/main.css" type="text/css">
-		<!-- bower:js -->
-		<script src="bower_components/jquery/dist/jquery.js"></script>
-		<!-- endbower -->
-		<script src="scripts/main.min.js"></script>
+		<!-- injector:css -->
+		<link rel="stylesheet" href="/public/css/normalize.css">
+		<link rel="stylesheet" href="/public/css/styles.css">
+		<!-- endinjector -->
+
 	</head>
 	<body ng-controller="noteCtrl" >
 
@@ -42,6 +41,13 @@
 			</main>
 		</div>
 
+
+		<!-- injector:js -->
+		<script src="/public/scripts/main.min.js"></script>
+		<script src="/public/scripts/vendor/angular/angular.min.js"></script>
+		<script src="/public/scripts/vendor/jquery/jquery.js"></script>
+		<script src="/public/scripts/vendor/jquery/jquery.min.js"></script>
+		<!-- endinjector -->
 
 	</body>
 </html>
