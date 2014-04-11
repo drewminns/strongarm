@@ -50,9 +50,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 {
-  font-size: 36px;
-  font-size: 2em;
-  line-height: 1.55676em;
+  font-size: 32px;
+  font-size: 1.77778em;
+  line-height: 1.55152em;
+  color: #f012be;
 }
 
 h2 {
