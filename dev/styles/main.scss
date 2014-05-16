@@ -1,0 +1,116 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	-moz-border-box: box-sizing;
+	-webkit-border-box: box-sizing;
+}
+
+@import '_mixins';
+@import '_colours'; // Better Colours
+@import '_grid'; // Better Colours
+
+// Specify the number of columns and set column and gutter widths
+$columns: 12;
+$column-width: 60;
+$gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+$total-width: 100%;
+
+/* ---------------------------
+Fonts are located in dist/css/fonts bro
+------------------------------ */
+@include importfont('Montserrat Regular', 'fonts/Montserrat-Regular', 400);
+@include importfont('Quicksand Bold', 'fonts/Quicksand-Bold', 700);
+
+// **********************
+// Set Variables Here
+//***********************
+$basefontsize: 12px;
+$baselineheight: 1.5;
+$cap-height: 		0.68;
+$basefontcolour: #333;
+$basefontfamily: "Montserrat Regular", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$headingsfontfamily: "Quicksand Bold", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$linkcolour: #0074D9;
+
+body {
+	height: 100%;
+	color: #333;
+  font-weight: 300;
+	font-size: $basefontsize;
+	font-family: $basefontfamily;
+}
+
+// Headings
+// -------------------------
+h1, h2, h3, h4, h5, h6, p, ul {
+	-webkit-margin-before:0em;
+	-webkit-margin-after:0em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+  font-weight: 100;
+	font-family: $headingsfontfamily;
+	text-rendering: optimizelegibility; // Fix the character spacing for headings
+	a {
+		color: $basefontcolour;
+	}
+}
+
+h1 {
+	@include fontbase(28px);
+}
+
+h2 {
+	@include fontbase(24px);
+}
+
+h3 {
+	@include fontbase(21px);
+}
+
+h4 {
+	@include fontbase(18px);
+}
+
+h5 {
+	@include fontbase(16px);
+}
+
+// General Typography
+// -------------------------
+p {
+	@include fontbase(12px);
+}
+
+a {
+	color: $linkcolour;
+	text-decoration: none;
+}
+
+// Lists
+// --------------------------------------------------
+
+// Unordered and Ordered lists
+ul, ol {
+	margin: 0;
+	padding: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+// **********************
+// All Styles Go Below Here Bud
+//***********************
+
+
