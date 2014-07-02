@@ -63,6 +63,10 @@
          if($pos == bottom, top, null);
 }
 
+@function calculateRem($size) {
+  $remSize: $size / $basefontsize;
+  @return $remSize * 1em;
+}
 
 @function lineheight($size) {
   $stripped: $size / ($size * 1 + 1);
