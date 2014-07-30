@@ -14,12 +14,15 @@
 		src: url('#{$font-filename}.eot?#iefix') format('embedded-opentype'),
 		url('#{$font-filename}.woff') format('woff'),
 		url('#{$font-filename}.ttf') format('truetype'),
-		url('#{$font-filename}.svg##{$font-family}') format('svg');
+		url('#{$font-filename}.svg#{$font-family}') format('svg');
 		font-weight: $font-weight;
 		font-style: $font-style;
 		font-stretch: $font-stretch;
 	}
 }
+
+
+
 
 // -------------------------
 // Border-Box

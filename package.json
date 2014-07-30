@@ -17,6 +17,9 @@
     "grunt-html-build": "~0.3.2",
     "grunt-bowercopy": "~1.0.0",
     "grunt-uncss": "~0.3.2",
-    "grunt-jade": "~0.4.0"
+    "grunt-jade": "~0.4.0",
+    "grunt": "~0.4.5",
+    "grunt-contrib-imagemin": "~0.7.1",
+    "grunt-svginject": "0.0.2"
   }
 }
