@@ -110,5 +110,4 @@ module.exports = function(grunt) {
 	// Run the server and watch for file changes
 	grunt.registerTask('default', ['jade', 'connect',  'concat', 'uglify', 'sass', 'autoprefixer', 'watch']); // Build Tasks
 	grunt.registerTask('clean', ['uncss']); // Deploy build tasks
-	grunt.registerTask('inject', ['bowercopy', 'svginject']); // Inject Bower and SVG tools
 };

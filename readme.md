@@ -7,7 +7,6 @@ Featuring:
 * Jade [http://jade-lang.com/](http://jade-lang.com/)
 * SCSS [http://sass-lang.com/](http://sass-lang.com/)
 * Grunt [http://gruntjs.com/](http://gruntjs.com/)
-* Bower [http://bower.io/](http://bower.io/)
 * Semantic GS [http://semantic.gs/](http://semantic.gs/)
 * CLRS [http://clrs.cc/](http://clrs.cc/)
 
@@ -17,7 +16,6 @@ Featuring:
 * Install [NodeJS](http://nodejs.org/), [Grunt](http://gruntjs.com/getting-started) and [Bower](http://bower.io/) on your computer. This is will change your life
 * Using the command line, navigate to the project folder. 
 * Run `NPM install` to install all required Grunt plugins
-* Run `bower install` to install required dependancies.
 
 ### Dev VS Dist
 There are two folders in the directory, **dev** and **dist**. You do all your work in the dev folder with SCSS, Jade and JS, and Grunt will compile to the dist folder. When you're ready to deploy your site, use the contents of your dist folder.
@@ -62,23 +60,6 @@ Instead of using presentational classes in your html, all grid structure is defi
 
 Seriously, read about it - [http://semantic.gs/](http://semantic.gs/)
 
-###Using Bower and the grunt inject task
-So bower, is really great, but sometimes, it gives you a little too much... Enter the bower copy grunt task. To transfer just the files you need into your distribution scripts folder, modify the files parameter on line 17 of your Gruntfile.
-
-*Example*
-
-Install animate.css into your project
-`bower install animate.css`
-
-Update the 'files' parameter of the bowercopy task on line 17 of Gruntfile.js to include the link to the bower file you'd like and where you'd like to copy it to.
-
-	files: {
-					'scripts/vendor/jquery/jquery.min.js': 'jquery/jquery.min.js',
-					'scripts/vendor/modernizr/modernizr.js': 'modernizr/modernizr.js',
-					'css/vendor/modernizr/modernizr.js': 'animate.css/animate.min.css'
-				}
-
-Add the link to the copied file in your header.jade file.
 
 ##Using the Grunt tasks
 
