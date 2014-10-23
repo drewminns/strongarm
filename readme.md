@@ -13,7 +13,7 @@ Featuring:
 ##How to use this
 
 * Clone the repo on your computer.
-* Install [NodeJS](http://nodejs.org/), [Grunt](http://gruntjs.com/getting-started) and [Bower](http://bower.io/) on your computer. This is will change your life
+* Install [NodeJS](http://nodejs.org/), [Grunt](http://gruntjs.com/getting-started) on your computer. This is will change your life
 * Using the command line, navigate to the project folder. 
 * Run `NPM install` to install all required Grunt plugins
 
