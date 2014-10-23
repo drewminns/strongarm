@@ -6,20 +6,6 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		bowercopy: {
-			options: {
-				srcPrefix: 'bower_components'
-			},
-			scripts: {
-				options: {
-					destPrefix: 'dist'
-				},
-				files: {
-					'scripts/vendor/jquery/jquery.min.js': 'jquery/jquery.min.js',
-					'scripts/vendor/modernizr/modernizr.js': 'modernizr/modernizr.js'
-				}
-			}
-		},
 		jade: {
 			html: {
 				files: {
@@ -66,14 +52,6 @@ module.exports = function(grunt) {
 				},
 				files: {                         // Dictionary of files
 					'dist/css/main.css': stylesheetsDir + 'main.scss'      // 'destination': 'source'
-				}
-			}
-		},
-		svginject: {
-			all : {
-				options: {},
-				files: {
-					 'dist/scripts/svginject.js': ['dist/css/svg/*.svg'],
 				}
 			}
 		},
@@ -126,7 +104,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-svginject');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-uncss');
